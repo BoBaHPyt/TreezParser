@@ -12,9 +12,9 @@ def export_to_google_sheets(df, crenditals, sheet_id, worksheet_id):
     crenditals = ServiceAccountCredentials.from_json_keyfile_name(crenditals, scope)
     client = gspread.authorize(crenditals)
     
-    sheet = client.open(sheet_id)
-    worksheet = sheet.get_worksheet(worksheet_id)
-    #sheet.values_clear(f"{worksheet.title}!A2:E10000")
+    sheet = client.open_by_key(sheet_id)
+    worksheet = sheet.worksheet(worksheet_id)
+    sheet.values_clear(f"{worksheet.title}!A2:E10000")
     worksheet.update(df)
 
 
