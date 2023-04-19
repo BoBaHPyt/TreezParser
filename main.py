@@ -14,7 +14,7 @@ def export_to_google_sheets(df, crenditals, sheet_id, worksheet_id):
     
     sheet = client.open_by_key(sheet_id)
     worksheet = sheet.get_worksheet(worksheet_id)
-    worksheet.delete_columns(1, 6)
+    sheet.values_clear(f"{worksheet.title}!A2:E10000")
     worksheet.update(df)
 
 
