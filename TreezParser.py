@@ -52,7 +52,7 @@ class TreezParser:
                         art = mod.xpath("./div/div[@class=\"b-catalog-item__option-code\"]/b/text()")[0]
                         price = mod.xpath("./div/div/@data-price")[0]
                         type = mod.xpath("./div/div/div/b[contains(text(), \"кашпо\")]/text()")
-                        count = len(mod.xpath("./div/div/div/b/span[@data-svg=\"tree\"]")) * (30 if type else 10)
+                        count = len(mod.xpath("./div/div/div/b/span[@data-svg=\"tree\"]")) * (10 if type else 50)
                         self.products.append([category, name, art, price, count])
             except:
                 break
